@@ -1,7 +1,11 @@
 import telebot
 import json
 import datetime
+import requests
 
+TOKEN = "7850309479:AAHWkVIP5mpstHMbzFBacaeZxW6W0S701qQ"
+
+requests.get(f"https://api.telegram.org/bot{TOKEN}/deleteWebhook")
 
 
 
@@ -71,15 +75,15 @@ def adres_pol(message):
 
 
 
-tokin="7850309479:AAHWkVIP5mpstHMbzFBacaeZxW6W0S701qQ"
 
 
-bot=telebot.TeleBot(tokin)
+
+bot=telebot.TeleBot(TOKEN)
 @bot.message_handler(["start"])
 def obrabotak_start(message):
     knopki=knopka()
     bot.send_message(message.chat.id, "добро пожаловать", reply_markup=knopki)
-
+    
 def true(message):
     return True
 
